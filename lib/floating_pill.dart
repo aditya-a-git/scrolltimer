@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class FloatingPill extends StatefulWidget {
   final Duration elapsed;
-  
+
   const FloatingPill({super.key, required this.elapsed});
 
   @override
@@ -35,9 +35,12 @@ class _FloatingPillState extends State<FloatingPill> {
         },
         child: Material(
           color: Colors.transparent,
-          elevation: 4.0,
           child: Container(
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(30),
+              color: Colors.black12,
+            ),
+            padding: EdgeInsets.symmetric(vertical: 8, horizontal: 14), 
             child: Text(
               _getDuration(widget.elapsed),
               style: const TextStyle(

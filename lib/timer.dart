@@ -12,7 +12,7 @@ class TimerPage extends StatefulWidget {
 
 class _TimerPageState extends State {
   Timer? _timer;
-  Duration _elapsed = Duration.zero;
+  Duration _elapsed = Duration(seconds: 1);
 
   @override
   void initState() {
@@ -37,8 +37,6 @@ class _TimerPageState extends State {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(child: FloatingPill(elapsed: _elapsed)),
-    );
+    return FloatingPill(elapsed: _elapsed);
   }
 }

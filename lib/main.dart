@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scrolltimer/timer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,9 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
-      ),
+      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
       home: const MyHomePage(title: 'scrollTimer'),
     );
   }
@@ -38,16 +37,30 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Column(
+      body: Stack(
         children: [
-          SwitchListTile(
-            title: Text("Turn on scrollTimer"),
-            value: _isSwitched,
-            onChanged: (value) {
-              setState(() {
-                _isSwitched = value;
-              });
-            },
+          if (_isSwitched) TimerPage(),
+          Column(
+            children: [
+              SwitchListTile(
+                title: Text("Turn on scrollTimer"),
+                value: _isSwitched,
+                onChanged: (value) {
+                  setState(() {
+                    _isSwitched = value;
+                  });
+
+                  // if (value) {
+                  //   Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //       builder: (context) => const TimerPage(),
+                  //     ),
+                  //   );
+                  // }
+                },
+              ),
+            ],
           ),
         ],
       ),
