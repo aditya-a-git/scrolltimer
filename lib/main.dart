@@ -49,15 +49,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   setState(() {
                     _isSwitched = value;
                   });
-
-                  // if (value) {
-                  //   Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //       builder: (context) => const TimerPage(),
-                  //     ),
-                  //   );
-                  // }
                 },
               ),
             ],
